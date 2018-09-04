@@ -60,7 +60,7 @@
     "redux": "^4.0.0",
     "tslib": "^1.9.3",
     "uxl-routing": "git+ssh://git@bitbucket.org/newuibcn/uxl-routing.git#polymer-3"
-  }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json || echo 'Build completed'",
     "test:ui:watch": "nodemon --watch test --watch src -x \"polymer test --config-file wct.config.json\"",
