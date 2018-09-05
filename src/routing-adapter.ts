@@ -1,11 +1,11 @@
 import {SelectableAdapter} from "@uxland/uxl-regions/adapters/selectable-adapter";
 import {IRegion, IRegionBehavior, IRegionHost} from "@uxland/uxl-regions/region";
-import {Router} from "uxl-routing/router";
+import {Router} from "@uxland/uxl-routing/router";
 import {ViewComponent, ViewDefinition} from "@uxland/uxl-regions/view-definition";
 import {RoutingRegionBehavior} from "./routing-region-behavior";
 import {Store} from "redux";
 import {RouterRegionDefinition} from "./router-region-decorator";
-import {Handler} from 'uxl-routing/router';
+import {Handler} from '@uxland/uxl-routing/router';
 
 export interface RoutedViewDefinition extends ViewDefinition{
     route: string;

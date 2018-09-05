@@ -55,11 +55,11 @@
   "dependencies": {
     "@uxland/uxl-polymer2-ts": "^1.0.5",
     "@uxland/uxl-redux": "^1.0.0",
-    "@uxland/uxl-regions": "git+ssh://git@bitbucket.org/newuibcn/uxl-regions.git#polymer-3",
+    "@uxland/uxl-regions": "git+ssh://git@github.com:uxland/uxl-regions.git",
+    "@uxland/uxl-routing": "git+ssh://git@github.com/uxland/uxl-routing.git",
     "@uxland/uxl-utilities": "^1.1.4",
     "redux": "^4.0.0",
-    "tslib": "^1.9.3",
-    "uxl-routing": "git+ssh://git@bitbucket.org/newuibcn/uxl-routing.git#polymer-3"
+    "tslib": "^1.9.3"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json || echo 'Build completed'",

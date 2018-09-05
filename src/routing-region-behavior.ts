@@ -1,17 +1,17 @@
 import {IRegionBehavior} from '@uxland/uxl-regions';
 import {Store} from 'redux';
-import {Router} from "uxl-routing/router";
+import {Router} from "@uxland/uxl-routing/router";
 import {IRegionHost} from "@uxland/uxl-regions/region";
 import {RouterRegionDefinition} from "./router-region-decorator";
 import {property} from "@uxland/uxl-polymer2-ts";
-import {routingSelectors} from 'uxl-routing/selectors';
+import {routingSelectors} from '@uxland/uxl-routing/selectors';
 import {bind, unbind} from "@uxland/uxl-redux/redux-binding";
 import {collect} from '@uxland/uxl-utilities/collect'
-import {isRouteActive} from "uxl-routing/is-route-active";
-import {findMatchingRoutes} from "uxl-routing/helpers/find-matching-routes";
-import {Route} from 'uxl-routing/reducer';
+import {isRouteActive} from "@uxland/uxl-routing/is-route-active";
+import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-routes";
+import {Route} from '@uxland/uxl-routing/reducer';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
-import {computePage} from 'uxl-routing/compute-page';
+import {computePage} from '@uxland/uxl-routing/compute-page';
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     let page = undefined;
@@ -20,8 +20,6 @@ const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: b
         if(matching.length){
             return matching[0].route.view as RoutedViewDefinition;
         }
-        /*if(typeof page === 'undefined')
-            page = defaultPage;*/
     }
     return null;
 }

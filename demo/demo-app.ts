@@ -5,15 +5,15 @@ import {RegionHost} from "@uxland/uxl-regions/region-host-mixin";
 import {region} from "@uxland/uxl-regions/region-decorator";
 import {IRegion} from "@uxland/uxl-regions";
 import * as uxlRedux from "@uxland/uxl-redux";
-import {reducer, Route} from 'uxl-routing/reducer';
-import {Router} from "uxl-routing/router";
-import {initializeLinkClickSupport} from 'uxl-routing/link-click-support';
+import {reducer, Route} from '@uxland/uxl-routing/reducer';
+import {Router} from "@uxland/uxl-routing/router";
+import {initializeLinkClickSupport} from '@uxland/uxl-routing/link-click-support';
 import * as redux from 'redux';
 import {regionAdapterRegistry} from "@uxland/uxl-regions/region-adapter-registry";
 import {RoutingAdapter} from "../src/routing-adapter";
 import {regionManager} from "@uxland/uxl-regions/region-manager";
-import {IRoutingMixin, routingMixin} from 'uxl-routing/routing-mixin';
-import {routingSelectors} from 'uxl-routing/selectors'
+import {IRoutingMixin, routingMixin} from '@uxland/uxl-routing/routing-mixin';
+import {routingSelectors} from '@uxland/uxl-routing/selectors'
 import {routingAdapterFactoryFactory} from "../src/routing-adapter-factory-factory";
 import {routerRegion} from "../src/router-region-decorator";
 import {actionNameBuilder} from "@uxland/uxl-redux/action-name-builder";
