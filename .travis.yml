@@ -14,7 +14,7 @@ before_script:
 script:
   - npm run build
   # - xvfb-run npm run test:ui
-  - npm run test:unit
+  # - npm run test:unit
 after_success:
   - gulp dist
 branches:
