@@ -46,9 +46,9 @@
     "redux-mock-store": "https://github.com/dpinart/redux-mock-store.git",
     "require-dir": "^0.3.2",
     "rimraf": "^2.6.2",
-    "semantic-release": "^15.9.3",
+    "semantic-release": "^15.9.12",
     "sinon": "^6.0.0",
-    "travis-deploy-once": "^5.0.1",
+    "travis-deploy-once": "^5.0.7",
     "typescript": "^2.9.2",
     "wct-browser-legacy": "^1.0.0"
   },
