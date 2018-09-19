@@ -20,7 +20,7 @@
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@polymer/iron-pages": "^3.0.0-pre.21",
-    "@polymer/lit-element": "^0.5.2",
+    "@polymer/lit-element": "^0.6.1",
     "@types/chai": "^4.1.4",
     "@types/chai-as-promised": "^7.1.0",
     "@types/lodash-es": "^4.17.0",
@@ -49,7 +49,7 @@
     "semantic-release": "^15.9.12",
     "sinon": "^6.0.0",
     "travis-deploy-once": "^5.0.7",
-    "typescript": "^2.9.2",
+    "typescript": "^3.0.3",
     "wct-browser-legacy": "^1.0.0"
   },
   "dependencies": {
@@ -65,8 +65,8 @@
     "build": "tsc -p tsconfig.json || echo 'Build completed'",
     "test:ui:watch": "nodemon --watch test --watch src -x \"polymer test --config-file wct.config.json\"",
     "test:ui": "polymer test --config-file wct.config.json",
-    "test:unit": "node --experimental-modules node_modules/mocha/bin/_mocha -r esm --ui tdd --reporter mochawesome test/unit",
-    "tdd": "node --experimental-modules node_modules/mocha/bin/_mocha --watch -r esm --ui tdd --reporter mochawesome test/unit",
+    "test:unit": "node --experimental-modules node_modules/mocha/bin/_mocha -r esm ./test/unit/setup.js --ui tdd --reporter mochawesome test/unit --recursive",
+    "tdd": "node --experimental-modules node_modules/mocha/bin/_mocha --watch -r esm ./test/unit/setup.js --ui tdd --reporter mochawesome test/unit --recursive",
     "dist": "tsc --p gulp/tsconfig-dist.json && gulp generate-d-ts",
     "prepublishOnly": "if [ -d dist ]; then ncp dist/. . && rimraf dist/; fi",
     "travis-deploy-once": "travis-deploy-once",

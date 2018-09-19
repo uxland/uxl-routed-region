@@ -12,6 +12,7 @@ import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-rout
 import {Route} from '@uxland/uxl-routing/reducer';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
 import {computePage} from '@uxland/uxl-routing/compute-page';
+import {PropertyValues} from "@polymer/lit-element";
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     let page = undefined;
@@ -42,12 +43,8 @@ export class RoutingRegionBehavior implements IRegionBehavior{
     }
     @property({statePath: routingSelectors.routeSelector})
     route: any;
-    _setPendingProperty(name: string, value: any, aux: boolean){
-        let result = this.route !== value;
-        this.route = value;
-        return result;
-    }
-    _invalidateProperties(){
+
+    requestUpdate(){
         let routeActive = isRouteActive(this.route, this.fullRoute);
         if(routeActive){
             let activeView = getActiveView(this.route, this.fullRoute, true, this.host.uxlRegion.currentViews as RoutedViewDefinition[]);

@@ -59,10 +59,11 @@ export class RoutingAdapter extends SelectableAdapter{
         return [...super.behaviors, new RoutingRegionBehavior(this.host, this.router, this.store, this.regionDefinition)]
     }
     viewAdded(view: RoutedViewDefinition){
-        super.viewAdded(view);
+        let p = super.viewAdded(view);
         let handler = new RoutedViewHandler();
         this.handlers.set(view, handler);
         this.router.register({route: getFullRoute(this.host, this.regionDefinition, view.route), handler});
+        return p;
     }
     activateView(view: HTMLElement & ViewComponent){
         let handler = this.handlers.get(view.view);

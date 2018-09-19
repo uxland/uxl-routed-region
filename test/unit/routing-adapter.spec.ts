@@ -1,5 +1,4 @@
 import {expect} from 'chai';
-import * as sinon from 'sinon';
 import {RoutingAdapter} from "../../src/routing-adapter";
 import {RoutingRegionBehavior} from "../../src/routing-region-behavior";
 describe('Given an instance of RoutingAdapter', () =>{

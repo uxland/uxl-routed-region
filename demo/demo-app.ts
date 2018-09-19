@@ -45,7 +45,7 @@ regionManager.registerViewWithRegion('router12', 'item-detail', {htmlTag: 'item-
 @customElement('demo-app')
 export class DemoApp extends RegionHost(Routing(LitElement)){
     subroute = '/';
-    _render(){
+    render(){
         return html `
             <div>
             <a href="view1">View1</a>
@@ -81,7 +81,7 @@ export class DemoApp extends RegionHost(Routing(LitElement)){
 }
 @customElement('module-a')
 export class ModuleA extends RegionHost(Routing(LitElement)){
-    _render(){
+    render(){
         return html `
             <h1>Module A</h1>
             <div>
@@ -115,7 +115,7 @@ export class ModuleA extends RegionHost(Routing(LitElement)){
 }
 @customElement('module-b')
 export class ModuleB extends RegionHost(Routing(LitElement)){
-    _render(){
+    render(){
         return html `
             <h1>Module B</h1>
             <div>
@@ -148,7 +148,7 @@ export class ModuleB extends RegionHost(Routing(LitElement)){
 }
 @customElement('items-list')
 export class ItemsList extends LitElement{
-    _render(){
+    render(){
         return html `
         <ul>
             <li><a href="view2/view2/0001?desc=hello">Item1</a> </li>
