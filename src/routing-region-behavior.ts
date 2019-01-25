@@ -3,7 +3,6 @@ import {Store} from 'redux';
 import {Router} from "@uxland/uxl-routing/router";
 import {IRegionHost} from "@uxland/uxl-regions/region";
 import {RouterRegionDefinition} from "./router-region-decorator";
-import {property} from "lit-element/lib/decorators";
 import {routingSelectors} from '@uxland/uxl-routing/selectors';
 import {bind, unbind} from "@uxland/uxl-redux/redux-binding";
 import {collect} from '@uxland/uxl-utilities/collect'
@@ -12,11 +11,9 @@ import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-rout
 import {Route} from '@uxland/uxl-routing/reducer';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
 import {computePage} from '@uxland/uxl-routing/compute-page';
-import {PropertyValues} from "lit-element";
 import {statePath} from '@uxland/uxl-redux/state-path';
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
-    let page = undefined;
     if(isRouteActive && currentRoute){
         let matching = findMatchingRoutes(currentRoute.href, availableViews.map(v => ({route: defaultPage + '/' + v.route, view: v})));
         if(matching.length){
@@ -24,7 +21,7 @@ const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: b
         }
     }
     return null;
-}
+};
 
 export class RoutingRegionBehavior implements IRegionBehavior{
     constructor(private host: IRegionHost & Element, private router: Router, private store: Store<any,any>, private definition: RouterRegionDefinition){
@@ -34,7 +31,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
 
     attach(): void {
         this.fullRoute = getFullRoute(this.host, this.definition);
-        bind(this, collect(this.constructor, 'properties'), this.store)
+        bind(this, collect(this.constructor, 'properties'), this.store);
         if(!this.definition.route || this.definition.route === '/')
             this.router.register({route: '/'})
     }

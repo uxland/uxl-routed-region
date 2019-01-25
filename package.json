@@ -22,7 +22,6 @@
     "@polymer/iron-pages": "^3.0.0-pre.21",
     "@types/chai": "^4.1.4",
     "@types/chai-as-promised": "^7.1.0",
-    "@types/lodash-es": "^4.17.0",
     "@types/mocha": "^5.2.2",
     "@types/redux-mock-store": "^1.0.0",
     "@types/sinon": "^5.0.1",
@@ -35,7 +34,6 @@
     "gulp": "^4.0.0",
     "gulp-run": "^1.7.1",
     "jsdom": "^11.11.0",
-    "lodash": "3.10.1",
     "mocha": "^5.2.0",
     "mochawesome": "^3.0.2",
     "mutation-observer": "^1.0.3",
@@ -54,8 +52,8 @@
   "dependencies": {
     "lit-element": "^2.0.0-rc.5",
     "@uxland/uxl-redux": "^2.0.1",
-    "@uxland/uxl-regions": "^1.0.1",
-    "@uxland/uxl-routing": "^1.0.0",
+    "@uxland/uxl-regions": "^2.0.1",
+    "@uxland/uxl-routing": "^2.0.0",
     "@uxland/uxl-utilities": "^2.0.0",
     "redux": "^4.0.0",
     "tslib": "^1.9.3"

@@ -9,4 +9,4 @@ describe('Given an instance of RoutingAdapter', () =>{
     describe('and a view is added', () =>{
 
     })
-})
+});
