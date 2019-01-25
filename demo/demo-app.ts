@@ -1,8 +1,7 @@
 import {LitElement, html} from "@polymer/lit-element";
-import {customElement} from '@uxland/uxl-polymer2-ts';
+import {customElement} from 'lit-element';
 import '@polymer/iron-pages/iron-pages';
 import {RegionHost} from "@uxland/uxl-regions/region-host-mixin";
-import {region} from "@uxland/uxl-regions/region-decorator";
 import {IRegion} from "@uxland/uxl-regions";
 import * as uxlRedux from "@uxland/uxl-redux";
 import {reducer, Route} from '@uxland/uxl-routing/reducer';
@@ -10,13 +9,12 @@ import {Router} from "@uxland/uxl-routing/router";
 import {initializeLinkClickSupport} from '@uxland/uxl-routing/link-click-support';
 import * as redux from 'redux';
 import {regionAdapterRegistry} from "@uxland/uxl-regions/region-adapter-registry";
-import {RoutingAdapter} from "../src/routing-adapter";
 import {regionManager} from "@uxland/uxl-regions/region-manager";
 import {IRoutingMixin, routingMixin} from '@uxland/uxl-routing/routing-mixin';
 import {routingSelectors} from '@uxland/uxl-routing/selectors'
 import {routingAdapterFactoryFactory} from "../src/routing-adapter-factory-factory";
 import {routerRegion} from "../src/router-region-decorator";
-import {actionNameBuilder} from "@uxland/uxl-redux/action-name-builder";
+
 const store = redux.createStore(redux.combineReducers({routing: reducer}));
 const Redux = uxlRedux.reduxMixin(store);
 const Routing: <T, P>(p: any) => IRoutingMixin<LitElement, P> = routingMixin(Redux, routingSelectors);
@@ -39,7 +37,7 @@ regionManager.registerViewWithRegion('router11', 'view2', {factory: viewFactory(
 regionManager.registerViewWithRegion('router12', 'view1', {factory: viewFactory('view-2.1'), route: 'view1'} );
 regionManager.registerViewWithRegion('router12', 'view2', {htmlTag: 'items-list', route: 'view2'} );
 
-regionManager.registerViewWithRegion('router12', 'item-detail', {htmlTag: 'item-detail', route: 'view2/:id'})
+regionManager.registerViewWithRegion('router12', 'item-detail', {htmlTag: 'item-detail', route: 'view2/:id'});
 
 
 @customElement('demo-app')
@@ -163,14 +161,15 @@ interface Aux {
     id: string;
 }
 
+// @ts-ignore
 @customElement('item-detail')
 export class ItemDetail extends Routing(LitElement){
 
-    _render(props: IRoutingMixin<any, Aux>){
+    render(){
         return html `
         <div>
-            <span>${props.params.id}</span>
-            <h1>${props.query}</h1>
+            <span>${(<any>this).params.id}</span>
+            <h1>${(<any>this).query}</h1>
 </div>
         `
     }
