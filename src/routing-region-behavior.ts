@@ -39,6 +39,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
     detach(): void {
         unbind(this);
     }
+
     @statePath(routingSelectors.routeSelector)
     route: any;
 
