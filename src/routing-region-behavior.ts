@@ -3,7 +3,7 @@ import {Store} from 'redux';
 import {Router} from "@uxland/uxl-routing/router";
 import {IRegionHost} from "@uxland/uxl-regions/region";
 import {RouterRegionDefinition} from "./router-region-decorator";
-import {property} from "@uxland/uxl-polymer2-ts";
+import {property} from "lit-element/lib/decorators";
 import {routingSelectors} from '@uxland/uxl-routing/selectors';
 import {bind, unbind} from "@uxland/uxl-redux/redux-binding";
 import {collect} from '@uxland/uxl-utilities/collect'
@@ -12,7 +12,8 @@ import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-rout
 import {Route} from '@uxland/uxl-routing/reducer';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
 import {computePage} from '@uxland/uxl-routing/compute-page';
-import {PropertyValues} from "@polymer/lit-element";
+import {PropertyValues} from "lit-element";
+import {statePath} from '@uxland/uxl-redux/state-path';
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     let page = undefined;
@@ -41,7 +42,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
     detach(): void {
         unbind(this);
     }
-    @property({statePath: routingSelectors.routeSelector})
+    @statePath(routingSelectors.routeSelector)
     route: any;
 
     requestUpdate(){

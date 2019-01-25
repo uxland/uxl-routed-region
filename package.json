@@ -20,7 +20,6 @@
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@polymer/iron-pages": "^3.0.0-pre.21",
-    "@polymer/lit-element": "^0.6.1",
     "@types/chai": "^4.1.4",
     "@types/chai-as-promised": "^7.1.0",
     "@types/lodash-es": "^4.17.0",
@@ -53,11 +52,11 @@
     "wct-browser-legacy": "^1.0.0"
   },
   "dependencies": {
-    "@uxland/uxl-polymer2-ts": "^1.0.5",
-    "@uxland/uxl-redux": "^1.0.0",
+    "lit-element": "^2.0.0-rc.5",
+    "@uxland/uxl-redux": "^2.0.1",
     "@uxland/uxl-regions": "^1.0.1",
     "@uxland/uxl-routing": "^1.0.0",
-    "@uxland/uxl-utilities": "^1.1.4",
+    "@uxland/uxl-utilities": "^2.0.0",
     "redux": "^4.0.0",
     "tslib": "^1.9.3"
   },
