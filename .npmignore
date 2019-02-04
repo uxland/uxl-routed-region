@@ -3,7 +3,5 @@ test/
 mochawesome-report/
 polymer.json
 tsconfig.json
-gulp/
-gulpfile.js
 node_modules/
 wct.config.json

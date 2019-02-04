@@ -4,14 +4,13 @@ import {Router} from "@uxland/uxl-routing/router";
 import {IRegionHost} from "@uxland/uxl-regions/region";
 import {RouterRegionDefinition} from "./router-region-decorator";
 import {routingSelectors} from '@uxland/uxl-routing/selectors';
-import {bind, unbind} from "@uxland/uxl-redux/redux-binding";
 import {collect} from '@uxland/uxl-utilities/collect'
 import {isRouteActive} from "@uxland/uxl-routing/is-route-active";
 import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-routes";
 import {Route} from '@uxland/uxl-routing/reducer';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
 import {computePage} from '@uxland/uxl-routing/compute-page';
-import {statePath} from '@uxland/uxl-redux/state-path';
+import {bind, unbind, watch} from "@uxland/uxl-redux";
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     if(isRouteActive && currentRoute){
@@ -31,7 +30,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
 
     attach(): void {
         this.fullRoute = getFullRoute(this.host, this.definition);
-        bind(this, collect(this.constructor, 'properties'), this.store);
+        //bind(<any>this, collect(this.constructor, 'properties'), this.store);
         if(!this.definition.route || this.definition.route === '/')
             this.router.register({route: '/'})
     }
@@ -40,7 +39,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
         unbind(this);
     }
 
-    @statePath(routingSelectors.routeSelector)
+    //@watch(routingSelectors.routeSelector, {store: this.store})
     route: any;
 
     requestUpdate(){
