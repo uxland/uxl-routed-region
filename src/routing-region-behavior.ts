@@ -54,5 +54,4 @@ export class RoutingRegionBehavior implements IRegionBehavior{
                 this.host.uxlRegion.deactivate(this.host.uxlRegion.currentActiveViews[0])
         }
     }
-
 }
