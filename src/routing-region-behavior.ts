@@ -1,16 +1,15 @@
 import {IRegionBehavior} from '@uxland/uxl-regions';
-import {Store} from 'redux';
+import {Store, Unsubscribe} from 'redux';
 import {Router} from "@uxland/uxl-routing/router";
 import {IRegionHost} from "@uxland/uxl-regions/region";
 import {RouterRegionDefinition} from "./router-region-decorator";
 import {routingSelectors} from '@uxland/uxl-routing/selectors';
-import {collect} from '@uxland/uxl-utilities/collect'
 import {isRouteActive} from "@uxland/uxl-routing/is-route-active";
 import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-routes";
 import {Route} from '@uxland/uxl-routing/reducer';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
 import {computePage} from '@uxland/uxl-routing/compute-page';
-import {bind, unbind, watch} from "@uxland/uxl-redux";
+import {bind, PropertyWatch, unbind, watch} from "@uxland/uxl-redux";
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     if(isRouteActive && currentRoute){
@@ -24,13 +23,26 @@ const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: b
 
 export class RoutingRegionBehavior implements IRegionBehavior{
     constructor(private host: IRegionHost & Element, private router: Router, private store: Store<any,any>, private definition: RouterRegionDefinition){
+        Object.values(RoutingRegionBehavior.uxlReduxWatchedProperties).forEach(pw => pw.store = store);
+        bind(<any>this);
+    }
+    __reduxStoreSubscriptions__: Unsubscribe[];
 
+    private static __uxlReduxWatchedProperties: { [key: string]: PropertyWatch };
+
+    protected static get uxlReduxWatchedProperties(): { [key: string]: PropertyWatch } {
+        if (!this.__uxlReduxWatchedProperties)
+            this.__uxlReduxWatchedProperties = {};
+        return this.__uxlReduxWatchedProperties;
+    }
+
+    public static watchProperty(name: PropertyKey, options: PropertyWatch) {
+        this.uxlReduxWatchedProperties[String(name)] = options;
     }
     private fullRoute: string;
 
     attach(): void {
         this.fullRoute = getFullRoute(this.host, this.definition);
-        //bind(<any>this, collect(this.constructor, 'properties'), this.store);
         if(!this.definition.route || this.definition.route === '/')
             this.router.register({route: '/'})
     }
@@ -39,7 +51,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
         unbind(this);
     }
 
-    //@watch(routingSelectors.routeSelector, {store: this.store})
+    @watch(routingSelectors.routeSelector)
     route: any;
 
     requestUpdate(){
