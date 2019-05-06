@@ -1,15 +1,15 @@
 import {IRegionBehavior} from '@uxland/uxl-regions';
-import {Store, Unsubscribe} from 'redux';
-import {Router} from "@uxland/uxl-routing/router";
-import {IRegionHost} from "@uxland/uxl-regions/region";
+import {Store} from 'redux';
+import {Router} from "@uxland/uxl-routing";
+import {IRegionHost} from "@uxland/uxl-regions";
 import {RouterRegionDefinition} from "./router-region-decorator";
-import {routingSelectors} from '@uxland/uxl-routing/selectors';
-import {isRouteActive} from "@uxland/uxl-routing/is-route-active";
-import {findMatchingRoutes} from "@uxland/uxl-routing/helpers/find-matching-routes";
-import {Route} from '@uxland/uxl-routing/reducer';
+import {routingSelectors} from '@uxland/uxl-routing';
+import {isRouteActive} from "@uxland/uxl-routing";
+import {findMatchingRoutes} from "@uxland/uxl-routing";
+import {Route} from '@uxland/uxl-routing';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
-import {computePage} from '@uxland/uxl-routing/compute-page';
-import {bind, PropertyWatch, unbind, watch} from "@uxland/uxl-redux";
+import {computePage} from '@uxland/uxl-routing';
+import {unbind, bind, watch, PropertyWatch, getWatchedProperties} from "@uxland/lit-redux-connect";
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     if(isRouteActive && currentRoute){
@@ -23,22 +23,14 @@ const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: b
 
 export class RoutingRegionBehavior implements IRegionBehavior{
     constructor(private host: IRegionHost & Element, private router: Router, private store: Store<any,any>, private definition: RouterRegionDefinition){
-        Object.values(RoutingRegionBehavior.uxlReduxWatchedProperties).forEach(pw => pw.store = store);
+        let properties: {[key: string]: PropertyWatch} = getWatchedProperties(RoutingRegionBehavior.prototype);
+        Object.values(properties)
+            .filter(x => x.store === null || x.store === undefined)
+            .forEach(x => x.store = store);
         bind(<any>this);
     }
-    __reduxStoreSubscriptions__: Unsubscribe[];
 
-    private static __uxlReduxWatchedProperties: { [key: string]: PropertyWatch };
 
-    protected static get uxlReduxWatchedProperties(): { [key: string]: PropertyWatch } {
-        if (!this.__uxlReduxWatchedProperties)
-            this.__uxlReduxWatchedProperties = {};
-        return this.__uxlReduxWatchedProperties;
-    }
-
-    public static watchProperty(name: PropertyKey, options: PropertyWatch) {
-        this.uxlReduxWatchedProperties[String(name)] = options;
-    }
     private fullRoute: string;
 
     attach(): void {
@@ -51,14 +43,14 @@ export class RoutingRegionBehavior implements IRegionBehavior{
         unbind(this);
     }
 
-    @watch(routingSelectors.routeSelector)
+    @watch(routingSelectors.routingSelector)
     route: any;
 
     requestUpdate(){
         let routeActive = isRouteActive(this.route, this.fullRoute);
         if(routeActive){
             let activeView = getActiveView(this.route, this.fullRoute, true, this.host.uxlRegion.currentViews as RoutedViewDefinition[]);
-            let page = activeView ? this.host.uxlRegion.getKey(activeView) :
+            let page = activeView ? this.host.uxlRegion.getKey(<any>activeView) :
                 computePage(this.route, this.definition.defaultPage, routeActive, this.fullRoute) || this.definition.defaultPage;
             if(page)
                 this.host.uxlRegion.activate(page);

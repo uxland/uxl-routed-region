@@ -1,11 +1,15 @@
-import {SelectableAdapter} from "@uxland/uxl-regions/adapters/selectable-adapter";
-import {IRegion, IRegionBehavior, IRegionHost} from "@uxland/uxl-regions/region";
-import {Router} from "@uxland/uxl-routing/router";
-import {ViewComponent, ViewDefinition} from "@uxland/uxl-regions/view-definition";
+import {
+    IRegion,
+    IRegionBehavior,
+    IRegionHost,
+    SelectableAdapter,
+    ViewComponent,
+    ViewDefinition
+} from "@uxland/uxl-regions";
+import {Handler, Router} from "@uxland/uxl-routing";
 import {RoutingRegionBehavior} from "./routing-region-behavior";
 import {Store} from "redux";
 import {RouterRegionDefinition} from "./router-region-decorator";
-import {Handler} from '@uxland/uxl-routing/router';
 
 export interface RoutedViewDefinition extends ViewDefinition{
     route: string;
@@ -20,7 +24,7 @@ export const getParentRoutedRegion: (element: any) => IRegion = element => {
             return region;
     }
     return getParentRoutedRegion(host);
-}
+};
 export const getFullRoute = (host: any, regionDefinition: RouterRegionDefinition, trailerRoute?: string) =>{
     let routes = [regionDefinition.route];
     if(trailerRoute)
@@ -35,7 +39,7 @@ export const getFullRoute = (host: any, regionDefinition: RouterRegionDefinition
     }
     return routes.join('/');
 
-}
+};
 class RoutedViewHandler implements Handler{
     public view: HTMLElement & ViewComponent & Handler;
 

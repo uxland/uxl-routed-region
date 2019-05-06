@@ -1,10 +1,4 @@
 node_modules/
 .idea/
-dist/
-src/**/*.js
-src/**/*.js.map
-test/**/*.js
-test/**/*.js.map
-demo/**/*.js
-demo/**/*.js.map
-mochawesome-report/
+lib/
+es/
