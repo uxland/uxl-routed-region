@@ -11,8 +11,9 @@
     "url": "https://github.com/uxland/uxl-routed-region/issues"
   },
   "author": "UXLand <dev@uxland.es> (http://www.uxland.es)",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "polymer",
     "web components"
