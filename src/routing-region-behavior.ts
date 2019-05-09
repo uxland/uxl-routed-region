@@ -45,7 +45,6 @@ export class RoutingRegionBehavior implements IRegionBehavior{
 
     @watch(routingSelectors.routingSelector)
     route: any;
-
     requestUpdate(){
         let routeActive = isRouteActive(this.route, this.fullRoute);
         if(routeActive){
@@ -55,7 +54,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
             if(page)
                 this.host.uxlRegion.activate(page);
             else
-                this.host.uxlRegion.deactivate(this.host.uxlRegion.currentActiveViews[0])
+                this.host.uxlRegion.deactivate(this.host.uxlRegion.currentActiveViews[0]);
         }
     }
 }

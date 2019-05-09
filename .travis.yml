@@ -7,9 +7,6 @@ sudo: required
 notifications:
   email: false
 node_js: 10
-addons:
-  chrome: stable
-
 script:
  - npm run test
 after_success:

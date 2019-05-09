@@ -1,6 +1,5 @@
 src/
 test/
-mochawesome-report/
 polymer.json
 tsconfig.json
 node_modules/
