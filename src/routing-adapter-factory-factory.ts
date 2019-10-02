@@ -11,5 +11,8 @@ export const routingAdapterFactoryFactory = (router: Router, store: Store<any, a
 
 export const routingAdapterFactory: (router: Router, store: Store<any, any>) => DynamicFactory = (router, store) => {
   const adapterFactory = routingAdapterFactoryFactory(router, store);
-  return host => (host['router-region'] || host.hasAttribute('router-region') ? adapterFactory : undefined);
+  return host => {
+    console.log(host);
+    return host['router-region'] ? adapterFactory : undefined;
+  };
 };

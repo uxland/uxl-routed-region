@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="module" src="demo-app.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>UXL Routed Region</title>
+    <script src="/demo/settings.js"></script>
+    <script>
+      document.addEventListener(
+        'WebComponentsReady',
+        function componentsReady() {
+          document.removeEventListener('WebComponentsReady', componentsReady, false);
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = '<%= htmlWebpackPlugin.files.chunks["main"].entry %>';
+          var refScript = document.body.getElementsByTagName('script')[0];
+          refScript.parentNode.insertBefore(script, refScript);
+        },
+        false
+      );
+    </script>
+  </head>
 
-</body>
+  <body>
+    <script defer src="<%= htmlWebpackPlugin.options.paths.webcomponents %>"></script>
+  </body>
 </html>
