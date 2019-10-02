@@ -60,7 +60,6 @@ export class DemoApp extends RegionHost(Routing(LitElement)) {
   @property()
   route: string;
 
-  subroute = '/';
   render() {
     return html`
       <div>
@@ -77,10 +76,10 @@ export class DemoApp extends RegionHost(Routing(LitElement)) {
   @routerRegion({ name: 'router1', targetId: 'routed-region', route: '' })
   region: IRegion;
   routeChanged(current: Route, previous: Route) {
-    console.log('route changed');
+    console.log('Route changed: ', current, previous);
   }
   isRouteActiveChanged(current: boolean, previous: boolean): void {
-    console.log('active changed');
+    console.log('Active changed:', current, previous);
   }
 
   paramsChanged(current: Object, previous: object) {}
@@ -104,10 +103,10 @@ export class ModuleA extends RegionHost(Routing(LitElement)) {
   @routerRegion({ name: 'router11', targetId: 'routed-region', route: 'view1' })
   region: IRegion;
   routeChanged(current: Route, previous: Route) {
-    console.log('route changed');
+    console.log('Route changed: ', current, previous);
   }
   isRouteActiveChanged(current: boolean, previous: boolean): void {
-    console.log('active changed');
+    console.log('Active changed:', current, previous);
   }
 
   paramsChanged(current: Object, previous: object) {}
@@ -131,10 +130,10 @@ export class ModuleB extends RegionHost(Routing(LitElement)) {
   @routerRegion({ name: 'router12', targetId: 'routed-region', route: 'view2' })
   region: IRegion;
   routeChanged(current: Route, previous: Route) {
-    console.log('route changed');
+    console.log('Route changed: ', current, previous);
   }
   isRouteActiveChanged(current: boolean, previous: boolean): void {
-    console.log('active changed');
+    console.log('Active changed:', current, previous);
   }
 
   paramsChanged(current: Object, previous: object) {}
