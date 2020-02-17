@@ -58,6 +58,6 @@ export class RoutingRegionBehavior implements IRegionBehavior{
             else
                 this.host.uxlRegion.deactivate(this.host.uxlRegion.currentActiveViews[0]);
         }
-        Promise.resolve(true);
+        return Promise.resolve(true);
     }
 }
