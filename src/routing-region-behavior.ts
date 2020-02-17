@@ -45,7 +45,7 @@ export class RoutingRegionBehavior implements IRegionBehavior{
         return Promise.resolve();
     }
 
-    @watch(routingSelectors.routingSelector)
+    @watch(routingSelectors.routeSelector)
     route: any;
     requestUpdate(){
         let routeActive = isRouteActive(this.route, this.fullRoute);
