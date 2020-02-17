@@ -33,14 +33,16 @@ export class RoutingRegionBehavior implements IRegionBehavior{
 
     private fullRoute: string;
 
-    attach(): void {
+    attach(): Promise<void> {
         this.fullRoute = getFullRoute(this.host, this.definition);
         if(!this.definition.route || this.definition.route === '/')
             this.router.register({route: '/'})
+        return Promise.resolve();
     }
 
-    detach(): void {
+    detach(): Promise<void> {
         unbind(this);
+        return Promise.resolve();
     }
 
     @watch(routingSelectors.routingSelector)
@@ -56,5 +58,6 @@ export class RoutingRegionBehavior implements IRegionBehavior{
             else
                 this.host.uxlRegion.deactivate(this.host.uxlRegion.currentActiveViews[0]);
         }
+        Promise.resolve(true);
     }
 }

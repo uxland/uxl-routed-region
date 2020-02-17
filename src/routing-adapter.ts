@@ -4,7 +4,8 @@ import {
     IRegionHost,
     SelectableAdapter,
     ViewComponent,
-    ViewDefinition
+    ViewDefinition,
+    IRegionAdapter
 } from "@uxland/uxl-regions";
 import {Handler, Router} from "@uxland/uxl-routing";
 import {RoutingRegionBehavior} from "./routing-region-behavior";
@@ -54,7 +55,7 @@ class RoutedViewHandler implements Handler{
         return true;
     }
 }
-export class RoutingAdapter extends SelectableAdapter{
+export class RoutingAdapter extends SelectableAdapter implements IRegionAdapter{
     constructor(host: IRegionHost & Element, protected router: Router, protected store: Store<any, any>, public regionDefinition: RouterRegionDefinition){
         super(host);
     }
@@ -73,6 +74,6 @@ export class RoutingAdapter extends SelectableAdapter{
         let handler = this.handlers.get(view.view);
         if(handler && !handler.view)
             handler.view = view;
-        super.activateView(view);
+        return super.activateView(view);
     }
 }
