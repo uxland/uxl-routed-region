@@ -10,6 +10,7 @@ import {Route} from '@uxland/uxl-routing';
 import {getFullRoute, RoutedViewDefinition} from "./routing-adapter";
 import {computePage} from '@uxland/uxl-routing';
 import {unbind, bind, watch, PropertyWatch, getWatchedProperties} from "@uxland/lit-redux-connect";
+import { view } from 'ramda';
 
 const getActiveView: (currentRoute: Route, defaultPage: string, isRouteActive: boolean, availableViews: RoutedViewDefinition[]) => RoutedViewDefinition = (currentRoute, defaultPage, isRouteActive, availableViews) => {
     if(isRouteActive && currentRoute){
@@ -51,10 +52,16 @@ export class RoutingRegionBehavior implements IRegionBehavior{
         let routeActive = isRouteActive(this.route, this.fullRoute);
         if(routeActive){
             let activeView = getActiveView(this.route, this.fullRoute, true, this.host.uxlRegion.currentViews as RoutedViewDefinition[]);
-            let page = activeView ? this.host.uxlRegion.getKey(<any>activeView) :
-                computePage(this.route, this.definition.defaultPage, routeActive, this.fullRoute) || this.definition.defaultPage;
-            if(page)
-                this.host.uxlRegion.activate(page);
+            let view;
+            if(activeView) {
+                view = activeView
+            } else {
+                let page =  computePage(this.route, this.definition.defaultPage, routeActive, this.fullRoute) || this.definition.defaultPage;
+                view = getActiveView({...this.route, href:page}, this.fullRoute, true, this.host.uxlRegion.currentViews as RoutedViewDefinition[])
+            }
+               
+            if(view)
+                this.host.uxlRegion.activate(view);
             else
                 this.host.uxlRegion.deactivate(this.host.uxlRegion.currentActiveViews[0]);
         }

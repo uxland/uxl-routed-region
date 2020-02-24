@@ -4,3 +4,4 @@ polymer.json
 tsconfig.json
 node_modules/
 wct.config.json
+.vscode/

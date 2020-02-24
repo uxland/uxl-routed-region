@@ -36,18 +36,18 @@
     "semantic-release": "^15.14.0",
     "travis-deploy-once": "^5.0.7",
     "ts-jest": "^24.3.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.2"
   },
   "dependencies": {
     "@uxland/lit-redux-connect": "^1.1.1",
     "@uxland/uxl-redux": "^3.0.9",
     "@uxland/uxl-regions": "^3.3.9",
-    "@uxland/uxl-routing": "^3.0.5",
+    "@uxland/uxl-routing": "^3.0.7",
     "@uxland/uxl-utilities": "^3.3.10",
     "lit-element": "^2.1.0",
     "ramda": "^0.26.1",
     "redux": "^4.0.5",
-    "tslib": "^1.9.3"
+    "tslib": "^1.11.0"
   },
   "scripts": {
     "type-check": "tsc --noEmit",
