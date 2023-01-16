@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@uxland/lit-redux-connect": "^2.0.0",
-    "@uxland/uxl-redux": "^3.0.9",
+    "@uxland/uxl-redux": "^4.0.0",
     "@uxland/uxl-regions": "^4.0.0",
     "@uxland/uxl-routing": "^3.0.7",
     "@uxland/uxl-utilities": "^4.0.0",
