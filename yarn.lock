@@ -1364,86 +1364,66 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@uxland/lit-redux-connect@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@uxland/lit-redux-connect/-/lit-redux-connect-1.1.3.tgz#f05ba254f5951ea9b1b932ea44a2c5cf4fc3436a"
-  integrity sha512-EbOS5cw59uSI4X+JsQyZnX7rEmVsomeWjjQYonZjM5wwfNd1c1pUsOT7vYgKodqZl1VAKkVkrs0NsWTa26Gl0g==
+"@uxland/lit-redux-connect@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@uxland/lit-redux-connect/-/lit-redux-connect-2.0.1.tgz#2123ce80a8c4d659687196641a1e2a8a44ec853e"
+  integrity sha512-f7Lvvn+WCyPNEFSDVk5B/N60K1yodRcHKW+10hAgC7PGdi40bHGygMHe1mNbYkK/ahcnriw1xD97rJrbRbD10w==
   dependencies:
-    "@uxland/uxl-utilities" "^3.0.3"
-    chai "^4.2.0"
-    lit-element "^2.0.1"
-    ramda "^0.27.0"
-    redux "^4.0.1"
-
-"@uxland/lit-redux-connect@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@uxland/lit-redux-connect/-/lit-redux-connect-2.0.0.tgz#b4f192e8e49076b9b655150e2622608ba131798e"
-  integrity sha512-fvlgJfgx0BuT91pgtxS+wksfD76b+yyypPRnezN5uRTALl7/ppLz9yutAHY+h1WL29Da5/G7iZIh0NvGp+pnNQ==
-  dependencies:
-    "@uxland/uxl-utilities" "^4.0.0"
+    "@uxland/uxl-utilities" "^4.0.1"
     chai "^4.2.0"
     lit "^2.6.1"
     ramda "^0.27.0"
     redux "^4.0.1"
 
-"@uxland/uxl-redux@^3.0.4", "@uxland/uxl-redux@^3.0.9":
-  version "3.0.10"
-  resolved "https://registry.yarnpkg.com/@uxland/uxl-redux/-/uxl-redux-3.0.10.tgz#f88d3bfde6c4400b17f20145bdbd89b9e58d358f"
-  integrity sha512-oUMnWhQztrCHlRepKXxRyA7tXJThBgxeDgfe88kEnhweN3ylJcZ76ZEQ9LW0hTtnTw5sPcGP9SdPa+tUYKo/9Q==
+"@uxland/uxl-redux@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@uxland/uxl-redux/-/uxl-redux-4.0.0.tgz#af3264cbb5ae983ba9e5fdaf64c6745f56189d4c"
+  integrity sha512-NG8Z2gmgmQn2GjQUBnL0j/0lhR6gW1ViYp3rfXN1b9BaRwCTfi6aK9uYvXpGtTxKP8GKsuKcs49FJL1uTy1JAA==
   dependencies:
-    "@uxland/uxl-utilities" "^3.3.3"
+    "@uxland/uxl-utilities" "^4.0.0"
     date-fns "^2.0.0-alpha.27"
-    lit-element "^2.0.1"
     ramda "^0.27.0"
     reduce-reducers "^0.3.0"
     redux "^4.0.0"
     redux-thunk "^2.3.0"
     reflect-metadata "^0.1.13"
 
-"@uxland/uxl-regions@^4.0.0":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@uxland/uxl-regions/-/uxl-regions-4.0.1.tgz#65938a078f29c799de1417f197313771d257b2aa"
-  integrity sha512-aKHmv2g/hz4SBM0sYgkCWlx/QCqVUzP4QMnXdkFriiso4YyMR7pOMSCsUxIBhZrlx/v+JjITeM0ozC3UlPIcjg==
+"@uxland/uxl-regions@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@uxland/uxl-regions/-/uxl-regions-4.0.2.tgz#03128048956b54cb3201f1881f45056974479158"
+  integrity sha512-e7kkWtOyM6mL3smJrO7k5XNUO46QoR6zbQjWlIoBPb8fHi1UyhBbKbv+FE7KR7I2qT/fv8dla4Gbcs3/Gh47Lw==
   dependencies:
-    "@uxland/uxl-utilities" "^4.0.0"
+    "@uxland/uxl-utilities" "^4.0.1"
     lit "^2.6.1"
     ramda "^0.27.0"
     tslib "^1.9.3"
 
-"@uxland/uxl-routing@^3.0.7":
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/@uxland/uxl-routing/-/uxl-routing-3.0.9.tgz#f6602c890b7aae35c09a8f8ec1bdc5b2336b768f"
-  integrity sha512-/4GuLQL6wB/GeYUZCpvoB1da+bWX69acCTxvZWzHH34LAqd3rUqA/NthEL2ezmwZmrCUAUbt8UiyYarKzf3hZA==
+"@uxland/uxl-routing@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@uxland/uxl-routing/-/uxl-routing-4.0.0.tgz#542aae424523d3f4cc2de6e67ad4e07ee02f4dde"
+  integrity sha512-Is1sofosrM7W9o0aliU7CxkteLO0so/NLwsMBa8IdM+uhXFEn0TUllh4sbq5lBW58iVm87la9zJOfwT3EjAPTg==
   dependencies:
-    "@uxland/lit-redux-connect" "^1.1.3"
-    "@uxland/uxl-redux" "^3.0.4"
-    "@uxland/uxl-utilities" "^3.3.2"
-    lit-element "^2.0.1"
+    "@uxland/lit-redux-connect" "^2.0.1"
+    "@uxland/uxl-redux" "^4.0.0"
+    "@uxland/uxl-utilities" "^4.0.1"
+    lit "^2.6.1"
     ramda "^0.27.0"
     redux "^4.0.0"
     reselect "^4.0.0"
     tslib "^1.9.3"
 
-"@uxland/uxl-utilities@^3.0.3", "@uxland/uxl-utilities@^3.3.2":
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/@uxland/uxl-utilities/-/uxl-utilities-3.5.3.tgz#98357510aec0e8274767233f23e732ebfee7d002"
-  integrity sha512-Wo99yncpACeSC3Pl2U/ilPkGmF0HDkJZXo+tQb9P3q16eRRS+YHemSWIKSli2C1JqdV+SGD12JzzDNVluU9k3w==
-  dependencies:
-    lit-element "^2.0.1"
-    ramda "^0.27.0"
-
-"@uxland/uxl-utilities@^3.3.3":
-  version "3.3.10"
-  resolved "https://registry.yarnpkg.com/@uxland/uxl-utilities/-/uxl-utilities-3.3.10.tgz#2923d0285e5244fe9413061942231393e1144618"
-  integrity sha512-j2pO2o7lIaTZCvu84olZhW5tk7GHp8fkfLMgK7Lddtai1+8XIAj01UZpzrcpEFIDaBNbgrrWcThrE8YoHStz0A==
-  dependencies:
-    lit-element "^2.0.1"
-    ramda "^0.26.1"
-
 "@uxland/uxl-utilities@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@uxland/uxl-utilities/-/uxl-utilities-4.0.0.tgz#5a15d33708b7564fed9caab8ff81dfd99abae0ce"
   integrity sha512-MJFcVLr8qH54en92LKKYLs+FFzTJaF5IqRVnz+QAL5kMybGE7nNcJx5GYibh65T1DhT0cdze90qbTSXw9isQzg==
+  dependencies:
+    lit "^2.6.1"
+    ramda "^0.27.0"
+
+"@uxland/uxl-utilities@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@uxland/uxl-utilities/-/uxl-utilities-4.0.1.tgz#6a9ab03ffe856aef37f549fe7380f91bbf8cde73"
+  integrity sha512-6JVtR1ZUhuWf8vo0sx1JTXCp0iySpoakfF+Jjk3EVVl+ItIZAZWl9XxDb1pVi3g170rfKV37AsQBNl82kONP8Q==
   dependencies:
     lit "^2.6.1"
     ramda "^0.27.0"
@@ -5014,13 +4994,6 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lit-element@^2.0.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.3.1.tgz#73343b978fa1e73d60526c6bb6ad60f53a16c343"
-  integrity sha512-tOcUAmeO3BzwiQ7FGWdsshNvC0HVHcTFYw/TLIImmKwXYoV0E7zCBASa8IJ7DiP4cen/Yoj454gS0qqTnIGsFA==
-  dependencies:
-    lit-html "^1.1.1"
-
 lit-element@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-3.2.2.tgz#d148ab6bf4c53a33f707a5168e087725499e5f2b"
@@ -5028,11 +5001,6 @@ lit-element@^3.2.0:
   dependencies:
     "@lit/reactive-element" "^1.3.0"
     lit-html "^2.2.0"
-
-lit-html@^1.1.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-1.2.1.tgz#1fb933dc1e2ddc095f60b8086277d4fcd9d62cc8"
-  integrity sha512-GSJHHXMGLZDzTRq59IUfL9FCdAlGfqNp/dEa7k7aBaaWD+JKaCjsAk9KYm2V12ItonVaYx2dprN66Zdm1AuBTQ==
 
 lit-html@^2.2.0, lit-html@^2.6.0:
   version "2.6.1"
@@ -6672,11 +6640,6 @@ raf@^3.4.0:
   integrity sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
   dependencies:
     performance-now "^2.1.0"
-
-ramda@^0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
-  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 ramda@^0.27.0:
   version "0.27.0"

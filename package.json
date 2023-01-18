@@ -39,11 +39,11 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
-    "@uxland/lit-redux-connect": "^2.0.0",
+    "@uxland/lit-redux-connect": "^2.0.1",
     "@uxland/uxl-redux": "^4.0.0",
-    "@uxland/uxl-regions": "^4.0.0",
-    "@uxland/uxl-routing": "^3.0.7",
-    "@uxland/uxl-utilities": "^4.0.0",
+    "@uxland/uxl-regions": "^4.0.2",
+    "@uxland/uxl-routing": "^4.0.0",
+    "@uxland/uxl-utilities": "^4.0.1",
     "ramda": "^0.27.0",
     "redux": "^4.0.5",
     "tslib": "^1.11.0"
